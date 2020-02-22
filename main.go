@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/go-httpproxy/httpproxy"
 )
@@ -63,5 +64,5 @@ func main() {
 	prx.OnResponse = OnResponse
 
 	// Listen...
-	http.ListenAndServe(":8080", prx)
+	http.ListenAndServe(":"+os.Getenv("PORT"), prx)
 }
