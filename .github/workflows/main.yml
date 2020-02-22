@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker Action
+      uses: zenato/docker-action@v1.0.0
+      with:
+        # Registry username
+        username: lenvl
+        # Registry password
+        password: $DOCKER_HUB_PASSWORD
+        # Repository on registry
+        repository: golang-http-proxy
+        # Registry hostname
+        # Image tag
+        tag: latest
